@@ -1,11 +1,16 @@
 //N1
 let arr = [1,'2',3,4,5,65,8,7,'name'];
+let obj = {name : 'username'};
 
 function mapping(arrParam, callback){
     let arrNew = [];
-    if(typeof arrParam == 'object'){
-        for (let x of arrParam) {
+    if(Array.isArray(arrParam) === true){
+        for (let x in arrParam) {
             arrNew.push(callback(x));
+        }
+    }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
+        for (let x in arrParam) {
+            arrNew.push(arrParam[x]);
         }
     }else {
         alert('Error : ' + arrParam + 'is not arr/obj')
@@ -13,8 +18,10 @@ function mapping(arrParam, callback){
     return  arrNew;
 }
 
-let arr1 = mapping(arr , x => x + ')');
-console.log(arr1);
+let result = mapping(arr , x => x + ')');
+let result1 = mapping(obj , (item)=>item.name);
+console.log(result);
+console.log(result1);
 
 
 function filtering(arrParam, callback){
