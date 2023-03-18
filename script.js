@@ -2,10 +2,16 @@
 let arr = [1,'2',3,4,5,65,8,7,'name'];
 let obj = {name : 'username'};
 
+let arrParam = null
+
+let callback = (item) => {};
+
+console.log('123 =>' , mapping(arrParam, callback))
+
 function mapping(arrParam, callback){
     let arrNew = [];
-    if(Array.isArray(arrParam) === true){
-        for (let x in arrParam) {
+    if(Array.isArray(arrParam)){
+        for (let x of arrParam) {
             arrNew.push(callback(x));
         }
     }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
