@@ -6,17 +6,20 @@ let arrParam = null
 
 let callback = (item) => {};
 
-console.log('123 =>' , mapping(arrParam, callback))
+console.log('123 =>', Array.isArray(arrParam) , mapping(arrParam, callback))
 
 function mapping(arrParam, callback){
     let arrNew = [];
+    let objNew = {};
     if(Array.isArray(arrParam)){
         for (let x of arrParam) {
             arrNew.push(callback(x));
         }
+    }else if(Array.isArray(arrParam) === false && arrParam === null){
+        return objNew
     }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
         for (let x in arrParam) {
-            arrNew.push(arrParam[x]);
+            objNew.x =  arrParam[x]
         }
     }else {
         alert('Error : ' + arrParam + 'is not arr/obj')
