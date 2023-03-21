@@ -16,7 +16,7 @@ function mapping(arrParam, callback){
             arrNew.push(callback(x));
         }
     }else if(Array.isArray(arrParam) === false && arrParam === null){
-        return objNew
+        alert('Error : ' + arrParam + 'is null')
     }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
         for (let x in arrParam) {
             objNew.x =  arrParam[x]
