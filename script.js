@@ -16,13 +16,11 @@ function mapping(arrParam, callback){
             arrNew.push(callback(x));
         }
     }else if(Array.isArray(arrParam) === false && arrParam === null){
-        alert('Error : ' + arrParam + 'is null')
+        alert('Error : ' + arrParam + 'is not arr/obj')
     }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
         for (let x in arrParam) {
             objNew.x =  arrParam[x]
         }
-    }else {
-        alert('Error : ' + arrParam + 'is not arr/obj')
     }
     return  arrNew;
 }
