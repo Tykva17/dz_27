@@ -2,7 +2,6 @@
 let arr = [1,'2',3,4,5,65,8,7,'name'];
 let obj = {name : 'username'};
 
-
 function mapping(arrParam, callback){
     let arrNew = [];
     if(Array.isArray(arrParam)){
