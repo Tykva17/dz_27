@@ -2,25 +2,22 @@
 let arr = [1,'2',3,4,5,65,8,7,'name'];
 let obj = {name : 'username'};
 
-let arrParam = null
-
-let callback = (item) => {};
-
-console.log('123 =>', Array.isArray(arrParam) , mapping(arrParam, callback))
 
 function mapping(arrParam, callback){
     let arrNew = [];
-    let objNew = {};
     if(Array.isArray(arrParam)){
         for (let x of arrParam) {
             arrNew.push(callback(x));
         }
-    }else if(Array.isArray(arrParam) === false && arrParam === null){
-        alert('Error : ' + arrParam + ' is not arr/obj')
+
     }else if(Array.isArray(arrParam) === false && typeof arrParam === 'object'){
         for (let x in arrParam) {
-            objNew.x =  arrParam[x]
+            // console.log(arrParam[x]);
+            arrNew.push(arrParam[x])
         }
+
+    }else if(Array.isArray(arrParam) === false || arrParam === null || arrParam === undefined){
+        alert('Error : ' + arrParam + ' is not arr/obj')
     }
     return  arrNew;
 }
